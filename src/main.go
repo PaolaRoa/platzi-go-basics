@@ -1,5 +1,6 @@
 package main
 
+//Paquete para interacturar en consola
 import "fmt"
 
 func main() {
@@ -34,6 +35,8 @@ func main() {
 	fmt.Println(areaCuadrado)
 
 	operations()
+	dataTypes()
+	fmtExploration()
 
 }
 
@@ -69,4 +72,58 @@ func operations() {
 	x--
 	fmt.Println(x)
 
+}
+
+func dataTypes() {
+	//GO identifica el tipo de dato, sin embargo especificarlo
+	//a la hora de asginar mejora el rendimiento
+
+	//Enteros int -> toma tipo del SO
+	var i int = 8
+	//int8, int16, int32, int64
+	//Enteros positivos, siempre positivos
+	//uint .. 8, 16, 32, 64
+	var positivo uint = 12
+
+	//decimales
+	var a float32 = 3.1
+	var b float64 = 3.2
+
+	//texto
+	var s string = "string"
+
+	//booleanos
+
+	var boolean bool = true
+
+	//números complejos
+	//complex 64 o 32
+	complex := 10 + 8i
+
+	fmt.Println(i, positivo, a, b, s, boolean, complex)
+
+}
+
+func fmtExploration() {
+	helloMessage := "hello"
+	worldMessage := "world"
+
+	//imprimir linea
+	fmt.Println(helloMessage)
+	fmt.Println(worldMessage)
+
+	//printF
+	//%s string, %d entero, %v tipo desconocido
+	nombre := "platzi"
+	cursos := 500
+
+	fmt.Printf("%s tiene más de %d cursos \n", nombre, cursos)
+
+	//Sprintf no imprime solo guarda
+
+	message := fmt.Sprintf("%v tiene más de %v cursos", nombre, cursos)
+	fmt.Println(message)
+
+	//tipo de dato
+	fmt.Printf("%T\n", helloMessage)
 }
