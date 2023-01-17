@@ -37,6 +37,14 @@ func main() {
 	operations()
 	dataTypes()
 	fmtExploration()
+	normalFunction("hola mundo")
+	tripleArguments(1, 2, "hola")
+	fmt.Println(returnValue(2))
+	value1, value2 := doubleReturn(2)
+	fmt.Println(value1, value2)
+	//guión al piso ignora valor retornado
+	_, value3 := doubleReturn(4)
+	fmt.Println(value3)
 
 }
 
@@ -126,4 +134,22 @@ func fmtExploration() {
 
 	//tipo de dato
 	fmt.Printf("%T\n", helloMessage)
+}
+
+// funciones
+func normalFunction(message string) {
+	fmt.Println(message)
+}
+
+// func tripleArguments(a int, b int, c string) {
+func tripleArguments(a, b int, c string) {
+	fmt.Println(a, b, c)
+}
+
+func returnValue(a int) int {
+	return a * 2
+}
+
+func doubleReturn(a int) (c, d int) {
+	return a, a * 2
 }
