@@ -52,6 +52,7 @@ func main() {
 
 	cycles()
 	conditinals()
+	deferBackContinue()
 
 }
 
@@ -201,4 +202,51 @@ func conditinals() {
 		log.Fatal(err)
 	}
 	fmt.Println(value)
+	//switch
+	modulo := 5 % 2
+
+	switch modulo {
+	case 0:
+		fmt.Println("es par")
+	default:
+		fmt.Println("es impar")
+	}
+
+	value2 := 20
+	switch {
+	case value2 > 100:
+		fmt.Println("mayor a 100")
+	case value2 < 100:
+		fmt.Println("menor que 100")
+	default:
+		fmt.Println("no")
+
+	}
+
+}
+
+func deferBackContinue() {
+	//Defer
+	//ejecuta ultima funcion antes de que termine la ejecución
+	defer fmt.Println("termino")
+	fmt.Println("codigo")
+
+	//Continue y break -> usados dentro de for
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+
+		//continue sigue con el ciclo
+		if i == 2 {
+			fmt.Println("es 2")
+			continue
+		}
+
+		//break rompe la ejecución
+		if i == 8 {
+			fmt.Println("Break")
+			break
+
+		}
+
+	}
 }
