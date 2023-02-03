@@ -53,6 +53,7 @@ func main() {
 	cycles()
 	conditinals()
 	deferBackContinue()
+	arraySlices()
 
 }
 
@@ -249,4 +250,35 @@ func deferBackContinue() {
 		}
 
 	}
+}
+
+func arraySlices() {
+	//arrays inmutables
+	var array [4]int
+	array[0] = 3
+	array[3] = 8
+
+	// len longitud, cap capacidad
+	fmt.Println(array, len(array), cap(array))
+
+	//Slice
+	slice := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+	fmt.Println(slice, len(slice), cap(slice))
+
+	//Métodos slice
+	fmt.Println(slice[0])
+	fmt.Println(slice[:3])
+	fmt.Println(slice[2:4])
+	fmt.Println(slice[4:])
+
+	//añadir elementos
+	slice = append(slice, 9)
+
+	fmt.Println(slice)
+
+	slice2 := []int{8, 99, 85}
+	slice = append(slice, slice2...)
+
+	fmt.Println(slice)
+
 }
