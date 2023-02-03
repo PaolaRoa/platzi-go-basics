@@ -1,11 +1,15 @@
 package main
 
 //Paquete para interacturar en consola
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
 func main() {
-	//go build src/main.go
-	//go run src/main.go
+	//go build src/main.go.go
+	//go run src/main.go.go
 	//Declaracion constante
 	const pi float64 = 3.14
 
@@ -45,6 +49,9 @@ func main() {
 	//guión al piso ignora valor retornado
 	_, value3 := doubleReturn(4)
 	fmt.Println(value3)
+
+	cycles()
+	conditinals()
 
 }
 
@@ -152,4 +159,46 @@ func returnValue(a int) int {
 
 func doubleReturn(a int) (c, d int) {
 	return a, a * 2
+}
+
+func cycles() {
+	//for
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+	//for while
+	counter := 10
+	for counter < 20 {
+		fmt.Println(counter)
+		counter++
+	}
+	// for forever
+	//counterForever := 0
+	/*for {
+		fmt.Println(counterForever)
+		counterForever++
+	}*/
+
+}
+
+func conditinals() {
+	valor1 := 1
+	valor2 := 2
+
+	if valor1 == 1 {
+		fmt.Println("es 1")
+	} else {
+		fmt.Println("no es 1")
+	}
+
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("true")
+	}
+
+	//texto a int
+	value, err := strconv.Atoi("14")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(value)
 }
