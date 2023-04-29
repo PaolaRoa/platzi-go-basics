@@ -3,8 +3,10 @@ package main
 //Paquete para interacturar en consola
 import (
 	"fmt"
+	"golang_platzi/src/mypackage"
 	"log"
 	"strconv"
+	"strings"
 )
 
 func main() {
@@ -54,6 +56,13 @@ func main() {
 	conditinals()
 	deferBackContinue()
 	arraySlices()
+	recorrerSlices()
+	palindromo("roma")
+	palindromo("ama")
+	palindromo("casa")
+	palindromo("Ama")
+	mapaDic()
+	structs()
 
 }
 
@@ -280,5 +289,80 @@ func arraySlices() {
 	slice = append(slice, slice2...)
 
 	fmt.Println(slice)
+
+}
+
+func recorrerSlices() {
+	slice := []string{"hola", "que", "hace"}
+
+	for i, valor := range slice {
+		fmt.Println(i, valor)
+	}
+
+	//Ignorar valor de indice
+	for _, valor := range slice {
+		fmt.Println(valor)
+	}
+}
+
+func palindromo(value string) {
+
+	var textreverse string
+
+	for i := len(value) - 1; i >= 0; i-- {
+
+		textreverse += string(value[i])
+	}
+
+	if strings.EqualFold(value, textreverse) {
+		fmt.Println("es palindromo")
+	} else {
+		fmt.Println("no es palindromo")
+	}
+}
+
+func mapaDic() {
+	//crea el mapa/diccionario [llave]valor
+	m := make(map[string]int)
+	m["jose"] = 14
+	m["pepito"] = 20
+
+	fmt.Println(m)
+
+	//recorrer mapa
+	for i, v := range m {
+		fmt.Println(i, v)
+	}
+
+	//encontrar valor
+	value := m["jose"]
+	println(value)
+
+	//si no existe imprime cero, para esto se existe el ok, que indica si existe o no
+	valuea, ok := m["no value"]
+
+	println(valuea, ok)
+}
+
+// GO no tiene clases, en su lugar usa Structs
+type car struct {
+	brand string
+	year  int
+}
+
+func structs() {
+	//instanciar struct
+	mycar := car{brand: "Ford", year: 2020}
+	//instanciar vacio
+	var otherCard car
+	otherCard.brand = "bmw"
+
+	fmt.Println(mycar)
+	fmt.Println(otherCard)
+
+	//package
+	var myCar mypackage.PublicCar
+	myCar.Brand = "Ferrari"
+	fmt.Println(myCar)
 
 }
